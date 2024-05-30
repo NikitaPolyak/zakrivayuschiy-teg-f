@@ -4,3 +4,43 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+  --font-weight-main: 400;
+  --font-weight-head: 700;
+  --color-background: #FFFFFF;
+  --currentColor: #000000;
+  --background-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(#e7e7e7 0% 0.01%, #1a1a1a);
+  --width: min(100%, 700px);
+  --color-stroke:#FFFFFF;
+  --animation-contour: #000000;
+  --animation-body:  #000000;
+  --animation-sparks: red;
+}
+
+:root.theme-dark {
+  --font-weight-main: 465;
+  --font-weight-head: 785;
+  --color-background: #000000;
+  --currentColor: #00CC14;
+  --background-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #000 0px 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(#007f0c, #004306);
+  --width: min(100%, 700px);
+  --color-stroke: #000000;
+  --animation-contour: #00CC14; 
+  --animation-body:  #00CC14;
+  --animation-sparks: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --font-weight-main: 465;
+    --font-weight-head: 785;
+    --color-background: #000000;
+    --currentColor: #00CC14;
+    --background-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #000 0px 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(#007f0c, #004306);
+    --width: min(100%, 700px);
+    --color-stroke: #000000;
+    --animation-contour: #00CC14;
+    --animation-body:  #00CC14;
+    --animation-sparks: red;
+}
+}
