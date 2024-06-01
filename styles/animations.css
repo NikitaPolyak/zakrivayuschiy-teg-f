@@ -21,7 +21,7 @@
   }
 }
 
-@keyframes changeScaling {
+@keyframes changeScale {
   0% {
     transform: scale(1);
   }
@@ -40,7 +40,7 @@
 }
 
 .like-icon.is-liked  {
-  animation: changeScaling 0.3s 0.1s ease-in 1 alternate;
+  animation: changeScale 0.3s 0.1s ease-in 1 alternate;
 }
 
 .like-icon.is-liked .sparks  {
