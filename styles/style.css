@@ -18,18 +18,18 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-main, sans-serif);
-  font-variation-settings: 'wght' var(--font-weight-main);
-  background-color: var(--color-background);
-  color: var(--currentColor);
-  background-image: var(--background-image);
+  font-variation-settings: 'wght' var(--font-weight-main, 400);
+  background-color: var(--color-background, #FFFFFF);
+  color: var(--currentColor, #000000);
+  background-image: var(--background-image, repeating-linear-gradient(90deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px),repeating-linear-gradient(#e7e7e7 0% 0.01%, #1a1a1a));
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  width: var(--width);
+  width: var(--width, min(100%, 700px));
   margin: auto;
   box-sizing: border-box;
-  margin-bottom: 40px;
+  margin-bottom: 103px;
 }
 
 .header {
@@ -37,35 +37,37 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  background: var(--color-background);
-  height: 368px;
-  width: var(--width);
+  background: var(--color-background, #FFFFFF);
+  /*height: 368px;*/
+  width: var(--width, min(100%, 700px));
   margin-top: 100px;
   margin-bottom: 102px;
-  border: 2px solid var(--currentColor);
+  border: 2px solid var(--currentColor, #000000);
   box-sizing: border-box;
   font-family: var(--font-additional, sans-serif);
+  padding-bottom: 25px;
 }
 
 .location-header {
   padding-top: 135px;
 }
 
-.header-h1 {
-  font-size: 65px;
-  line-height: 65px;
+.logo {
+  font-size: clamp(3.0625rem, 3.0037rem + 1.1765vw, 4.0625rem);
+  text-decoration: none;
 }
 
-.header-h2 {
+.header-logo {
   text-transform: uppercase;
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.8419rem + 0.6618vw, 1.4375rem); 
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
-  padding-top: 2px;
+  padding-top: 3px;
   gap: 11px;
+  padding-left: 21px;
 }
 
 .theme-menu__button {
@@ -73,23 +75,8 @@
   background-color: transparent;
   border: none;
   font-size: 14px;
-  font-weight: var(--font-weight-main);
-  line-height: 14px;
+  font-weight: var(--font-weight-main, 400);
   text-transform: uppercase;
-  padding-left: 25px;
-}
-
-.theme-menu__button:disabled {
-  pointer-events: none;
-  transition: opacity 0.3s easy;
-  opacity: 0.6;
-}
-
-.theme-menu__button:hover {
-  transition: opacity 0.3s;
-  transition-timing-function: easy;
-  opacity: 0.6;
-  cursor: pointer;
 }
 
 .theme-menu__button:focus {
@@ -103,13 +90,8 @@
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: var(--currentColor);
+  background-color: var(--currentColor, #000000);
   content: "";
-}
-
-.theme-menu__button:focus-visible:after {
-  transition: width 0.3s;
-  width: 100%;
 }
 
 .theme-menu__button:disabled::before {
@@ -117,7 +99,7 @@
   position: absolute;
   left: 0px;
   opacity: 0.6;
-  animation-name: alarm;
+  animation-name: slideInFromLeft;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -129,20 +111,20 @@
   display: flex;
   flex-direction: column;
   gap: 53px;
-  width: var(--width);
+  width: var(--width, min(100%, 700px));
 }
 
 .card {
   box-sizing: border-box;
-  background-color: var(--color-background);
-  outline: 2px solid var(--currentColor); 
+  background-color: var(--color-background, #FFFFFF);
+  outline: 2px solid var(--currentColor, #000000); 
 }
 
-.header-h3 {
-  color: var(--currentColor);
-  font-family: var(--font-main);
+.header-card {
+  color: var(--currentColor, #000000);
+  font-family: var(--font-main, sans-serif);
+  font-variation-settings: 'wght' var(--font-weight-head, 700);
   font-size: 18px;
-  font-weight: 700;
   letter-spacing: 0.02em;
   text-align: left;
   padding: 6px 10px 4px 10px;
@@ -151,7 +133,7 @@
 
 .block-image {
   box-sizing: border-box;
-  outline: 3px solid var(--currentColor);
+  outline: 3px solid var(--currentColor, #000000);
   outline-offset: -2px;
   position: relative;
 }
@@ -165,17 +147,17 @@
   min-height: 375px;
 }
 
-@supports((text-stroke: 1px var(--color-stroke)) or (-webkit-text-stroke: 1px var(--color-stroke))) {
+@supports((text-stroke: 1px var(--color-stroke,#FFFFFF)) or (-webkit-text-stroke: 1px var(--color-stroke,#FFFFFF))) {
   .label{
-      -webkit-text-stroke: 1px var(--color-stroke);
-      text-stroke: 1px var(--color-stroke);
+      -webkit-text-stroke: 1px var(--color-stroke,#FFFFFF);
+      text-stroke: 1px var(--color-stroke,#FFFFFF);
       text-shadow: none;
   }
 } 
 
 .label {
   position: absolute;
-  color: var(--currentColor);
+  color: var(--currentColor, #000000);
   font-family: var(--font-additional, sans-serif);
   background-blend-mode: hard-light;
   font-size: 14px;
@@ -198,13 +180,12 @@
 
 .paragraph-text {
   color: rgb(0, 0, 0);
-  font-family: var(--font-main);
-  color: var(--currentColor);
+  font-family: var(--font-main,sans-serif);
+  color: var(--currentColor, #000000);
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.04em;
   word-spacing: -0.05em;
-  line-height: 21px;
 }
 
 .card-button {
@@ -214,17 +195,7 @@
   margin-right: 25px;
 }
 
-.card__like-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--currentColor);
-  transition: all 0.5s;
-  transform: translateX(-100%);
-}
+
 
 .card__like-button:hover {
   cursor: pointer;
@@ -232,13 +203,6 @@
 
 .card__like-button:hover::before {
   transform: translateX(0);
-}
-
-.card__like-button:focus {
-  outline: none;
-  cursor: pointer;
-  transition: box-shadow 0.3s;  
-  box-shadow: 2px 2px 0px 0px var(--currentColor);
 }
 
 .card__icon-button {
@@ -256,163 +220,47 @@
 border: none;
 }
 
-.card__icon-button:focus-visible {
-  transition: outline 0.3s;
-  transition-timing-function: easy;
-}
-
-.card__like-button {
-  background-color: transparent;
-  border: 2px solid var(--currentColor);
-  width: 130px;
-  height: 38px;
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-}
-
 .button__text {
-  color: var(--currentColor);
-  font-family: var(--font-additional);
+  color: var(--currentColor, #000000);
+  font-family: var(--font-additional, sans-serif);
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
   position: relative;
-}
-
-.like-icon
-.core {
-  fill: transparent;
-  transition: fill 0.3s 0.03 linear;
-}
-
-.like-icon
-.main-body {
-  fill: transparent;
-  transition: fill 0.3s linear;
-}
-
-.like-icon
-.contour {
-  fill: var(--animation-contour);
-  transition: fill 0.1s linear;
 }
 
 .button__text:hover {
   background-blend-mode: difference;
-  color: var(--color-stroke);
+  color: var(--color-stroke,#FFFFFF);
   z-index: 1;
-}
-
-.like-icon:hover 
-.core {
-  fill: var(--animation-body);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover 
-.main-body {
-  fill: var(--animation-body);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon:active
-.core {
-  fill: var(--animation-sparks);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active 
-.main-body {
-  fill: var(--animation-sparks);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--animation-sparks);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--animation-sparks);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--animation-sparks);
-  transition: fill 0.3s 0.06s linear;
 }
 
 .like-icon .sparks {
   opacity: 0;
 }
 
-.like-icon.is-liked  {
-  animation: scaling 0.3s 0.1s ease-in 1 alternate;
-}
-
-.like-icon.is-liked .sparks  {
-  animation: sparks 0.3s 0.3s ease-in 1 alternate;
-}
-
-.button-save {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  margin-bottom: 30px;
-  background-color: var(--color-background);
-  outline: 1px solid var(--currentColor);
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  width: 335px;
-  height: 55px;
-}
-
 .text-button-save {
-  color: var(--currentColor);
+  color: var(--currentColor, #000000);
   font-family: var(--font-additional, sans-serif);
   font-size: 14px;
-  line-height: 12.6px;
-  font-weight: var(--font-weight-main);
+  font-weight: var(--font-weight-main, 400);
   position: relative;
 }
 
 .text-button-save:hover {
   background-blend-mode: difference;
-  color: var(--color-stroke);
+  color: var(--color-stroke, #FFFFFF);
   z-index: 1;
 }
 
 .button-save:hover {
   background-blend-mode: difference;
-  color: var(--color-stroke);
+  color: var(--color-stroke, #FFFFFF);
   z-index: 1;
   cursor: pointer;
 }
 
-.button-save::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--currentColor);
-  transition: all 0.5s;
-  transform: translateX(-100%);
-}
-
 .button-save:hover::before {
   transform: translateX(0);
-}
-
-.button-save:focus {
-  outline: none;
-  cursor: pointer;
-  transition: box-shadow 0.3s;  
-  box-shadow: 2px 2px 0px 0px black;
 }
 
 .filter-saturate {
@@ -450,9 +298,9 @@ border: none;
 
 .dialog {
   width: 353px;
-  height: 191px;
-  background-color: var(--color-stroke);
-  outline: 2px solid var(--currentColor);
+  height: 191px; /*когда буду работать с диалогами убрать везду height (не забыть про кнопки)*/
+  background-color: var(--color-stroke, #FFFFFF);
+  outline: 2px solid var(--currentColor, #000000);
 }
 
 .dialog-location {
@@ -468,25 +316,24 @@ border: none;
 }
 
 .dialog-text {
-  color: var(--currentColor);
-  font-family: var(--font-additional);
+  color: var(--currentColor, #000000);
+  font-family: var(--font-additional, sans-serif);
   font-size: 15px;
-  line-height: 20px;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .dialog-button {
-  border: 2px solid var(--currentColor);
+  border: 2px solid var(--currentColor, #000000);
   width: 293px;
   height: 38px;
   margin-top: 27px;
   margin-left: 11px;
-  background-color: var(--color-stroke);
+  background-color: var(--color-stroke, #FFFFFF);
 }
 
 .dialog-button-text {
-  color: var(--currentColor);
+  color: var(--currentColor, #000000);
   font-weight: 400;
 }
 
@@ -497,23 +344,21 @@ border: none;
 
 @media (width<376px) {
 
-.header {
-  height: 327px;
-}
-
 .card {
-  border-left: 2px solid var(--currentColor);
-  border-right: 2px solid var(--currentColor);
+  border-left: 2px solid var(--currentColor, #000000);
+  border-right: 2px solid var(--currentColor, #000000);
 }
 
-.header-h1 {
-  font-size: 49px;
-  line-height: 49px;
+.logo {
+  /*font-size: 49px;*/
+  /*line-height: 49px;*/
+  letter-spacing: -0.09em;
 }
 
-.header-h2 {
+.header-logo {
   text-transform: uppercase;
-  font-size: 14px;
+  /*font-size: 14px;*/
+  word-spacing: -1em;
 }
 
 .location-header {
