@@ -8,8 +8,9 @@
   --currentColor: #000000;
   --background-image: repeating-linear-gradient(90deg, #d3d3d3 0px 2px, transparent 2px 4px), repeating-linear-gradient(180deg, #d3d3d3 0px 2px, transparent 2px 4px),repeating-linear-gradient(#e7e7e7 0% 0.01%, #1a1a1a);
   --width: min(100%, 700px);
-  --color-stroke:#FFFFFF;
+  --color-stroke: #FFFFFF;
   --animation-contour: #000000;
   --animation-body:  #000000;
   --animation-sparks: red;
+  --button-text-color: #FFFFFF;
 }

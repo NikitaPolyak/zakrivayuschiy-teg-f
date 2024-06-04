@@ -47,52 +47,10 @@
   animation: fadeIn 0.3s 0.3s ease-in 1 alternate;
 }
 
-.theme-menu__button:disabled {
-  pointer-events: none;
-  transition: opacity 0.3s easy;
-  opacity: 0.6;
-}
-
-.theme-menu__button:hover {
-  transition: opacity 0.3s;
-  transition-timing-function: easy;
-  opacity: 0.6;
-  cursor: pointer;
-}
-
-.theme-menu__button:focus-visible:after {
-  transition: width 0.3s;
-  width: 100%;
-}
-
-.card__like-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--currentColor, #000000);
-  transition: all 0.5s;
-  transform: translateX(-100%);
-}
-
-.card__icon-button:focus-visible {
-  transition: outline 0.3s;
-  transition-timing-function: easy;
-}
-
-.card__like-button:focus {
-  outline: none;
-  cursor: pointer;
-  transition: box-shadow 0.3s;  
-  box-shadow: 2px 2px 0px 0px var(--currentColor, #000000);
-}
-
 .like-icon
 .core {
   fill: transparent;
-  transition: fill 0.3s 0.03 linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon
@@ -106,7 +64,6 @@
   fill: var(--animation-contour, #000000);
   transition: fill 0.1s linear;
 }
-
 
 .like-icon:hover 
 .core {
@@ -147,45 +104,4 @@
   transition: fill 0.3s 0.06s linear;
 }
 
-.button-save {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  background-color: var(--color-background, #FFFFFF);
-  outline: 1px solid var(--currentColor, #000000);
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-  width: 335px;
-  height: 55px;
-}
 
-.button-save::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--currentColor, #000000);
-  transition: all 0.5s;
-  transform: translateX(-100%);
-}
-
-.button-save:focus {
-  outline: none;
-  cursor: pointer;
-  transition: box-shadow 0.3s;  
-  box-shadow: 2px 2px 0px 0px black;
-}
-
-.card__like-button {
-  background-color: transparent;
-  border: 2px solid var(--currentColor, #000000);
-  width: 130px;
-  height: 38px;
-  position: relative;
-  transition: all 0.5s ease-in-out;
-  overflow: hidden;
-}

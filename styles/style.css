@@ -38,10 +38,9 @@
   gap: 20px;
   align-items: center;
   background: var(--color-background, #FFFFFF);
-  /*height: 368px;*/
   width: var(--width, min(100%, 700px));
   margin-top: 100px;
-  margin-bottom: 102px;
+  margin-bottom: 100px;
   border: 2px solid var(--currentColor, #000000);
   box-sizing: border-box;
   font-family: var(--font-additional, sans-serif);
@@ -81,6 +80,10 @@
 
 .theme-menu__button:focus {
   outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
   cursor: pointer;
 }
 
@@ -110,22 +113,21 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 53px;
+  gap: 49px;
   width: var(--width, min(100%, 700px));
 }
 
 .card {
   box-sizing: border-box;
   background-color: var(--color-background, #FFFFFF);
-  outline: 2px solid var(--currentColor, #000000); 
+  border: 2px solid var(--currentColor, #000000);
 }
 
 .header-card {
   color: var(--currentColor, #000000);
   font-family: var(--font-main, sans-serif);
-  font-variation-settings: 'wght' var(--font-weight-head, 700);
+  font-variation-settings: 'wght' var(--font-weight-head, 700), 'wdth' 125;
   font-size: 18px;
-  letter-spacing: 0.02em;
   text-align: left;
   padding: 6px 10px 4px 10px;
   line-height: 22px;
@@ -133,8 +135,8 @@
 
 .block-image {
   box-sizing: border-box;
-  outline: 3px solid var(--currentColor, #000000);
-  outline-offset: -2px;
+  border-top: 2px solid var(--currentColor, #000000);
+  border-bottom: 2px solid var(--currentColor, #000000);
   position: relative;
 }
 
@@ -147,10 +149,9 @@
   min-height: 375px;
 }
 
-@supports((text-stroke: 1px var(--color-stroke,#FFFFFF)) or (-webkit-text-stroke: 1px var(--color-stroke,#FFFFFF))) {
+@supports(-webkit-text-stroke: 1px var(--color-stroke,#FFFFFF)) {
   .label{
       -webkit-text-stroke: 1px var(--color-stroke,#FFFFFF);
-      text-stroke: 1px var(--color-stroke,#FFFFFF);
       text-shadow: none;
   }
 } 
@@ -175,15 +176,15 @@
 }
 
 .maket {
-  margin-right: 30px;
+  margin-right: 25px;
 }
 
 .paragraph-text {
   color: rgb(0, 0, 0);
   font-family: var(--font-main,sans-serif);
+  font-variation-settings: 'wght' var( --font-weight-main, 400);
   color: var(--currentColor, #000000);
   font-size: 18px;
-  font-weight: 400;
   letter-spacing: 0.04em;
   word-spacing: -0.05em;
 }
@@ -195,14 +196,50 @@
   margin-right: 25px;
 }
 
-
-
-.card__like-button:hover {
-  cursor: pointer;
+.button {
+  background-color :var(--color-stroke, #FFFFFF);
+  background-blend-mode: difference;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--currentColor, #000000);
+  transition: all 0.5s ease-in-out; 
 }
 
-.card__like-button:hover::before {
-  transform: translateX(0);
+.card__like-button {
+  min-width: 130px;
+  max-height: 38px;
+}
+
+.button-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  min-width: 335px;
+  min-height: 55px;
+}
+
+.button-text-common {
+  font-family: var(--font-additional, sans-serif);
+  font-weight: 400;
+  position: relative;
+  font-size: 14px;
+}
+
+.button__text {
+  color: var(--button-text-color, #000000);
+  mix-blend-mode: difference;
+}
+
+.text-button-save {
+  color: var(--button-text-color, #000000);
+  font-weight: var(--font-weight-main, 400);
+  mix-blend-mode: difference;
+ 
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .card__icon-button {
@@ -216,40 +253,17 @@
   cursor: pointer;
 }
 
-.card__icon-button:focus {
-border: none;
+.card__icon-button:focus{
+  border: none;
 }
 
-.button__text {
-  color: var(--currentColor, #000000);
-  font-family: var(--font-additional, sans-serif);
-  font-size: 14px;
-  font-weight: 400;
-  position: relative;
-}
-
-.button__text:hover {
-  background-blend-mode: difference;
-  color: var(--color-stroke,#FFFFFF);
-  z-index: 1;
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--currentColor, #000000);
+  outline-offset: -7px;
 }
 
 .like-icon .sparks {
   opacity: 0;
-}
-
-.text-button-save {
-  color: var(--currentColor, #000000);
-  font-family: var(--font-additional, sans-serif);
-  font-size: 14px;
-  font-weight: var(--font-weight-main, 400);
-  position: relative;
-}
-
-.text-button-save:hover {
-  background-blend-mode: difference;
-  color: var(--color-stroke, #FFFFFF);
-  z-index: 1;
 }
 
 .button-save:hover {
@@ -257,6 +271,73 @@ border: none;
   color: var(--color-stroke, #FFFFFF);
   z-index: 1;
   cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  transition: opacity 0.3s;
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover {
+  transition: opacity 0.3s;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button:focus-visible:after {
+  transition: width 0.3s;
+  width: 100%;
+}
+
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--currentColor, #000000);
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+
+.card__like-button:hover::before {
+  transform: translateX(0);
+}
+
+.card__icon-button:focus {
+  border: none;
+}
+
+.card__icon-button:focus-visible {
+  transition: outline 0.3s;
+}
+
+.button-save::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--currentColor, #000000);
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+
+.button-save:focus-visible {
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s;  
+  box-shadow: 2px 2px 0px 0px var(--currentColor, #000000);
+}
+
+.card__like-button:focus-visible {
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s;  
+  box-shadow: 2px 2px 0px 0px var(--currentColor, #000000);
 }
 
 .button-save:hover::before {
@@ -297,44 +378,43 @@ border: none;
  }
 
 .dialog {
-  width: 353px;
-  height: 191px; /*когда буду работать с диалогами убрать везду height (не забыть про кнопки)*/
+  max-width: 353px;
+  min-height: 191px;
   background-color: var(--color-stroke, #FFFFFF);
-  outline: 2px solid var(--currentColor, #000000);
+  border-color: var(--currentColor, #000000);
+  outline: 1px solid var(--currentColor, #000000);
+}
+
+.dialog-button {
+  padding: 10px 130px 5px 130px;
+  margin-top: 27px;
+  margin-left: 12px;
+}
+
+.dialog-button:focus-visible {
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s;  
+  box-shadow: 2px 2px 0px 0px var(--currentColor, #000000);
+}
+
+.dialog-text {
+  color: var(--currentColor, #000000);
+  line-height: 21px;
 }
 
 .dialog-location {
   display: flex;
   gap: 5px;
-  margin-top: 13px;
+  margin-top: 14px;
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .dialog-floppy {
+  color: var(--currentColor, #000000);
   padding-top: 7px;
   width: 7em;
-}
-
-.dialog-text {
-  color: var(--currentColor, #000000);
-  font-family: var(--font-additional, sans-serif);
-  font-size: 15px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.dialog-button {
-  border: 2px solid var(--currentColor, #000000);
-  width: 293px;
-  height: 38px;
-  margin-top: 27px;
-  margin-left: 11px;
-  background-color: var(--color-stroke, #FFFFFF);
-}
-
-.dialog-button-text {
-  color: var(--currentColor, #000000);
-  font-weight: 400;
 }
 
 .dialog[open]::backdrop {
@@ -344,54 +424,65 @@ border: none;
 
 @media (width<376px) {
 
+.header {
+  margin-bottom: 97px;
+}
+
 .card {
   border-left: 2px solid var(--currentColor, #000000);
   border-right: 2px solid var(--currentColor, #000000);
 }
 
 .logo {
-  /*font-size: 49px;*/
-  /*line-height: 49px;*/
-  letter-spacing: -0.09em;
+  letter-spacing: -0.06em;
 }
 
 .header-logo {
   text-transform: uppercase;
-  /*font-size: 14px;*/
-  word-spacing: -1em;
+  letter-spacing: -0.12em;
 }
 
 .location-header {
-  padding-top: 118px;
+  padding-top: 114px;
 }
 
 .label {
   right: 10px;
 }
 
+.main {
+  gap: 49px
+}
+
+.paragraph {
+  margin-top: 22px;
+}
+
 .maket {
-  margin: 25px;
+  margin-top: 21px;
 }
 
 .button-save {
   display: flex;
   flex-direction: column;
-  width: 306px;
-  height: 80px;
-  padding-left: 14px;
-  padding-bottom: 4px;
+  padding-top: 10px;
+  padding-bottom: 14px;
+  min-width: 310px;
 }
 
 .floppy svg {
-  block-size: 2.6em;
+  block-size: 2.4em;
+  padding-left: 10px;
  }
 
  .dialog {
-   width: 341px;
+  padding-left: 34px;
  }
 
 .dialog-button {
-  width: 257px;
+  padding-right: 113px;
+  padding-left: 110px;
+  margin-bottom: 15px;
 }
 }
 
