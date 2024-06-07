@@ -214,6 +214,7 @@
 
 .button-save {
   display: flex;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -362,9 +363,8 @@
 }
 
 .floppy svg {
-  block-size: 1.9em;
+  block-size: 21px;
   position: relative;
-  margin-top: 7px;
   mix-blend-mode: difference;
  }
 
@@ -373,6 +373,7 @@
   min-height: 191px;
   background-color: var(--color-stroke, #FFFFFF);
   border: 2px solid var(--currentColor, #000000);
+  overflow: hidden;
 }
 
 .dialog-button {
@@ -395,16 +396,17 @@
 
 .dialog-location {
   display: flex;
-  gap: 5px;
+  gap: 22px;
   margin-top: 14px;
   margin-left: 10px;
-  margin-right: 10px;
+  margin-right: 11px;
 }
 
-.dialog-floppy {
+.parent-svg-dialog {
   color: var(--currentColor, #000000);
-  padding-top: 7px;
-  width: 7em;
+  padding-top: 8px;
+  width: 39px;
+  height: 39px;
 }
 
 .dialog[open]::backdrop {
@@ -453,7 +455,6 @@
 }
 
 .button-save {
-  display: flex;
   flex-direction: column;
   min-width: 310px;
   min-height: 84px;
@@ -462,12 +463,13 @@
 }
 
 .floppy svg {
-  block-size: 2.4em;
-  padding-left: 10px;
+  padding-top: 6px;
+  block-size: 34px;
  }
 
  .dialog {
-  padding-left: 34px;
+  max-width: 346px;
+  padding-left: 31px;
  }
 
 .dialog-button {
